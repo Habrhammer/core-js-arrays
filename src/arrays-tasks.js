@@ -23,9 +23,12 @@
 
 function getIntervalArray(start, end) {
   const result = new Array(end - start + 1);
+  let counter = start;
 
   return Array.from(result, () => {
-    return start++;
+    const value = counter;
+    counter += 1;
+    return value;
   });
 }
 
@@ -396,7 +399,7 @@ function getElementByIndices(arr, indices) {
  *  getFalsyValuesCount([ null, undefined, NaN, false, 0, '' ]) => 6
  */
 function getFalsyValuesCount(arr) {
-  return arr.filter((el) => !Boolean(el)).length;
+  return arr.filter((el) => !el).length;
 }
 
 /**
